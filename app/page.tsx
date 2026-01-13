@@ -69,7 +69,7 @@ export default function CampWebsite() {
           </div>
           <nav className="hidden md:flex gap-8">
             <a href="#timeline" className="text-foreground hover:text-primary transition">
-              Timeline
+              Our Journey
             </a>
             <a href="#memories" className="text-foreground hover:text-primary transition">
               Memories
@@ -97,7 +97,7 @@ export default function CampWebsite() {
           <div className="flex flex-wrap gap-4 justify-center">
             {[
               { value: "25", label: "Years of Camp", delay: "delay-100" },
-              { value: "1000+", label: "Happy Campers", delay: "delay-200" },
+              { value: "2000+", label: "Happy Campers", delay: "delay-200" },
               { value: "100%", label: "Fun & Learning", delay: "delay-300" },
             ].map((stat, idx) => (
               <div
@@ -171,7 +171,7 @@ export default function CampWebsite() {
 
         <div className="max-w-6xl mx-auto relative z-10">
           <h3 className="text-3xl md:text-4xl font-bold text-center text-primary mb-12 animate-slideInUp">
-            What Kids Learn at Camp
+            What Kids Learn at Chinnara Chilipili
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
@@ -180,7 +180,7 @@ export default function CampWebsite() {
               { title: "Sports", icon: "⚽", desc: "Play various sports, develop athletic skills and confidence" },
               { title: "Drawing & Art", icon: "🎨", desc: "Express creativity through drawing, painting, and crafts" },
               { title: "Hidden Skills", icon: "✨", desc: "Discover new talents and hidden abilities within" },
-              { title: "Adventures", icon: "🏕️", desc: "Field trips and outdoor exploration every week" },
+              { title: "Adventures", icon: "🏕️", desc: "Field trips and outdoor exploration" },
             ].map((activity, idx) => (
               <div
                 key={idx}
@@ -203,7 +203,7 @@ export default function CampWebsite() {
             Photo Gallery
           </h3>
           <p className="text-center text-foreground/70 mb-12 max-w-2xl mx-auto animate-slideInUp delay-100">
-            Cherished moments from our camps over the years
+            Cherished moments from our camp over the years
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {memoryPhotos.map((photo, idx) => (
@@ -222,7 +222,7 @@ export default function CampWebsite() {
           </div>
           <div className="text-center mt-12">
             <p className="text-foreground/70 mb-4 animate-slideInUp">
-              Have photos from past camps? Help us preserve memories!
+              Have photos from previous years? Help us preserve memories!
             </p>
             <button className="px-6 py-3 bg-accent text-accent-foreground rounded-lg font-medium hover:opacity-90 transition transform hover:scale-105 animate-slideInUp delay-100 flex items-center gap-2 mx-auto">
               <Sparkles size={18} />
@@ -239,7 +239,7 @@ export default function CampWebsite() {
             {
               icon: Calendar,
               title: "Duration",
-              desc: "One full week of activities, learning, and fun every summer",
+              desc: "10 Days of activities, learning, and fun every summer",
               delay: "delay-100",
             },
             {
@@ -251,7 +251,7 @@ export default function CampWebsite() {
             {
               icon: MapPin,
               title: "Adventure",
-              desc: "Weekly field trips and outdoor explorations included",
+              desc: "Field trips and outdoor explorations included",
               delay: "delay-300",
             },
           ].map((item, idx) => {
@@ -281,7 +281,7 @@ export default function CampWebsite() {
             Only ₹100 to give your child an unforgettable week of adventure, learning, and friendship!
           </p>
           <p className="text-foreground/70 mb-8 animate-slideInUp delay-200">
-            Fill out the registration form below to secure your child's spot in this year's camp.
+            Fill the form to register for this year's Chinnara Chilipili.
           </p>
 
           {/* Google Form Embed */}
