@@ -307,7 +307,7 @@ export default function CampWebsite() {
             Register Your Child Today
           </h3>
           <p className="text-lg text-foreground/80 mb-4 animate-slideInUp delay-100">
-            Only ₹200 to give your child an unforgettable week of adventure, learning, and friendship!
+            Only ₹100 to give your child an unforgettable week of adventure, learning, and friendship!
           </p>
           <p className="text-foreground/70 mb-8 animate-slideInUp delay-200">
             Fill the form to register for this year's Chinnara Chilipili.
