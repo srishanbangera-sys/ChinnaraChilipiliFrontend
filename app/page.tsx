@@ -279,10 +279,11 @@ export default function CampWebsite() {
             },
             {
               icon: MapPin,
-              title: "Adventure",
-              desc: "Field trips and outdoor explorations included",
+              title: "Camp Location",
+              desc: "Bockapatna Government High School, Bockapatna, Mangalore – 575006",
               delay: "delay-300",
             },
+
           ].map((item, idx) => {
             const Icon = item.icon
             return (
@@ -297,6 +298,7 @@ export default function CampWebsite() {
           })}
         </div>
       </section>
+
 
       {/* Registration Section */}
       <section id="register" className="py-16 md:py-24 px-4 bg-white relative overflow-hidden">
@@ -328,19 +330,20 @@ export default function CampWebsite() {
 
               <p className="text-foreground/70 max-w-md">
                 Registrations for this year’s <strong>Chinnara Chilipili</strong> will open on
-                <strong> 15 March 2026</strong>.
+                <strong> 10 March 2026</strong>.
               </p>
 
               <p className="text-sm text-foreground/60 mt-2">
                 The registration form will be available here.
               </p>
 
-              <button
-                disabled
-                className="mt-4 px-6 py-2 rounded-md bg-muted text-foreground/50 cursor-not-allowed border border-border"
-              >
-                Opens on 15 March 2026
-              </button>
+              {/* Camp Start Date */}
+              <div className="mt-4 flex items-center justify-center gap-2 bg-white/70 border border-border rounded-md px-4 py-2">
+                <span className="text-lg">🏕️</span>
+                <p className="text-foreground/80 text-sm font-medium">
+                  Camp begins on <strong>17 April 2026</strong>
+                </p>
+              </div>
             </div>
           </div>
 
