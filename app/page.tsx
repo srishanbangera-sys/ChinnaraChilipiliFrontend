@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import { ChevronDown, Calendar, Trophy, MapPin, Sparkles } from "lucide-react"
+import Reveal from "@/components/Reveal"
 
 export default function CampWebsite() {
   const [expandedYear, setExpandedYear] = useState<number | null>(null)
@@ -9,7 +10,7 @@ export default function CampWebsite() {
   const timelineEvents = [
     {
       year: 2000,
-      title: "Camp Begins",
+      title: "The Beginning",
       description: "The first summer camp brings together 25 children from the community.",
       image: "/children-playing-outdoors-in-camp.jpg",
     },
@@ -46,14 +47,18 @@ export default function CampWebsite() {
   ]
 
   const memoryPhotos = [
-    "/kids-laughing-at-camp.jpg",
-    "/children-playing-sports-together.jpg",
-    "/kids-doing-yoga-stretching.jpg",
-    "/children-drawing-and-creating-art.jpg",
-    "/kids-eating-together-at-camp-meal.jpg",
-    "/children-in-group-photo-camp.jpg",
-    "/kids-playing-field-game-outdoors.jpg",
-    "/children-bonding-and-having-fun-camp.jpg",
+    "/WhatsApp Image 2026-01-25 at 10.55.07 AM.jpeg",
+    "/WhatsApp Image 2026-01-25 at 10.50.35 AM.jpeg",
+    "/2018 group2.jpeg",
+    "/Dinning hall 1.jpeg",
+    "/2018 group.jpeg",
+    "/old volunteers group.jpeg",
+    "/2018 group3.jpeg",
+    "/2018 group4.jpeg",
+    "/Dinning hall 2.jpeg",
+    "/Dinning hall 3.jpeg",
+    "/kids group.jpeg",
+    "/HUL protest 2.jpeg",
   ]
 
   return (
@@ -61,12 +66,21 @@ export default function CampWebsite() {
       {/* Navigation Header */}
       <header className="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-border animate-slideInDown">
         <div className="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+
           <div className="flex items-center gap-2">
-            <div className="w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-lg animate-bounce-gentle">
-              🏕️
+            <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center animate-bounce-gentle overflow-hidden">
+              <img
+                src="/Picsart_26-02-05_17-06-19-138.png"   // put your logo path here
+                alt="Chinnara Chilipili Logo"
+                className="w-full h-full object-cover"
+              />
             </div>
-            <h1 className="text-2xl font-bold text-primary hidden sm:block">Chinnara Chilipili 26</h1>
+
+            <h1 className="text-2xl font-bold text-primary hidden sm:block">
+              Chinnara Chilipili
+            </h1>
           </div>
+
           <nav className="hidden md:flex gap-8">
             <a href="#timeline" className="text-foreground hover:text-primary transition">
               Our Journey
@@ -78,22 +92,43 @@ export default function CampWebsite() {
               Register
             </a>
           </nav>
+
         </div>
       </header>
 
-      {/* Hero Section */}
-      <section className="py-16 md:py-24 px-4 bg-gradient-to-b from-secondary/20 to-background relative overflow-hidden">
-        <div className="absolute top-10 left-10 w-20 h-20 bg-accent/10 rounded-full blur-2xl animate-float"></div>
-        <div className="absolute bottom-20 right-10 w-32 h-32 bg-primary/5 rounded-full blur-3xl animate-float delay-300"></div>
 
-        <div className="max-w-6xl mx-auto text-center relative z-10">
-          <h2 className="text-4xl md:text-5xl font-bold text-primary mb-4 text-pretty animate-slideInUp">
-            25 Years of Adventure, Learning & Fun
-          </h2>
-          <p className="text-lg text-foreground/80 mb-8 max-w-2xl mx-auto text-pretty animate-slideInUp delay-100">
-            Celebrating a quarter century of unforgettable summer camp memories, teamwork, and personal growth for kids
-            in our community.
-          </p>
+      {/* Hero Section */}
+      <section className="relative py-16 md:py-24 px-4 overflow-hidden">
+        {/* Background Image */}
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{
+            backgroundImage: "url('/WhatsApp Image 2026-01-25 at 10.50.13 AM.jpeg')",
+          }}
+        ></div>
+
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-secondary/70 to-background/50"></div>
+
+        {/* Floating Decorations (keep these above overlay) */}
+        <div className="absolute top-10 left-10 w-20 h-20 bg-accent/10 rounded-full blur-2xl animate-float z-10"></div>
+        <div className="absolute bottom-20 right-10 w-32 h-32 bg-primary/5 rounded-full blur-3xl animate-float delay-300 z-10"></div>
+
+        {/* Content */}
+        <div className="max-w-6xl mx-auto text-center relative z-20">
+          <Reveal>
+            <h2 className="text-4xl md:text-5xl font-bold text-primary mb-4">
+              25 Years of Adventure, Learning & Fun
+            </h2>
+          </Reveal>
+
+          <Reveal delay={150}>
+            <p className="text-lg text-foreground/80 mb-8 max-w-2xl mx-auto">
+              Celebrating a quarter century of unforgettable summer camp memories…
+            </p>
+          </Reveal>
+
+
           <div className="flex flex-wrap gap-4 justify-center">
             {[
               { value: "25", label: "Years of Camp", delay: "delay-100" },
@@ -102,7 +137,7 @@ export default function CampWebsite() {
             ].map((stat, idx) => (
               <div
                 key={idx}
-                className={`bg-white rounded-lg p-6 border border-border flex-1 min-w-[200px] max-w-[220px] animate-slideInUp shadow-sm hover:shadow-md transition ${stat.delay}`}
+                className={`bg-white/90 backdrop-blur rounded-lg p-6 border border-border flex-1 min-w-[200px] max-w-[220px] animate-slideInUp shadow-sm hover:shadow-md transition ${stat.delay}`}
               >
                 <div className="text-3xl font-bold text-accent mb-2">{stat.value}</div>
                 <div className="text-sm text-foreground/70">{stat.label}</div>
@@ -111,6 +146,7 @@ export default function CampWebsite() {
           </div>
         </div>
       </section>
+
 
       {/* Timeline Section */}
       <section id="timeline" className="py-16 md:py-24 px-4 bg-white relative">
@@ -199,12 +235,14 @@ export default function CampWebsite() {
       {/* Memories Photo Gallery */}
       <section id="memories" className="py-16 md:py-24 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
-          <h3 className="text-3xl md:text-4xl font-bold text-center text-primary mb-4 animate-slideInUp">
-            Photo Gallery
-          </h3>
-          <p className="text-center text-foreground/70 mb-12 max-w-2xl mx-auto animate-slideInUp delay-100">
-            Cherished moments from our camp over the years
-          </p>
+          <Reveal>
+            <h3 className="text-3xl md:text-4xl font-bold text-center text-primary mb-4 animate-slideInUp">
+              Photo Gallery
+            </h3>
+            <p className="text-center text-foreground/70 mb-12 max-w-2xl mx-auto animate-slideInUp delay-100">
+              Cherished moments from our camp over the years
+            </p>
+          </Reveal>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {memoryPhotos.map((photo, idx) => (
               <div
@@ -219,15 +257,6 @@ export default function CampWebsite() {
                 />
               </div>
             ))}
-          </div>
-          <div className="text-center mt-12">
-            <p className="text-foreground/70 mb-4 animate-slideInUp">
-              Have photos from previous years? Help us preserve memories!
-            </p>
-            <button className="px-6 py-3 bg-accent text-accent-foreground rounded-lg font-medium hover:opacity-90 transition transform hover:scale-105 animate-slideInUp delay-100 flex items-center gap-2 mx-auto">
-              <Sparkles size={18} />
-              Submit Photos
-            </button>
           </div>
         </div>
       </section>
@@ -278,30 +307,43 @@ export default function CampWebsite() {
             Register Your Child Today
           </h3>
           <p className="text-lg text-foreground/80 mb-4 animate-slideInUp delay-100">
-            Only ₹100 to give your child an unforgettable week of adventure, learning, and friendship!
+            Only ₹200 to give your child an unforgettable week of adventure, learning, and friendship!
           </p>
           <p className="text-foreground/70 mb-8 animate-slideInUp delay-200">
             Fill the form to register for this year's Chinnara Chilipili.
           </p>
 
-          {/* Google Form Embed */}
-          <div className="bg-muted/30 rounded-lg p-8 border border-border mb-8 animate-slideInUp delay-300 shadow-sm">
-            <p className="text-foreground/80 mb-4 font-medium">📝 Registration Form</p>
-            <iframe
-              src="https://docs.google.com/forms/d/e/1FAIpQLSfakeid/viewform?embedded=true"
-              width="100%"
-              height="800"
-              frameBorder="0"
-              marginHeight={0}
-              marginWidth={0}
-              className="rounded-lg"
-            >
-              Loading…
-            </iframe>
-            <p className="text-sm text-foreground/60 mt-6">
-              💡 Tip: Replace the form URL with your actual Google Form link
+          {/* Registration Status */}
+          <div className="bg-muted/30 rounded-lg p-8 border border-border mb-8 animate-slideInUp delay-300 shadow-sm text-center">
+            <p className="text-foreground/80 mb-6 font-medium">
+              📝 Registration Form
             </p>
+
+            <div className="flex flex-col items-center gap-3">
+              <div className="text-4xl">📅</div>
+
+              <h3 className="text-xl font-semibold text-foreground">
+                Registrations Opening Soon
+              </h3>
+
+              <p className="text-foreground/70 max-w-md">
+                Registrations for this year’s <strong>Chinnara Chilipili</strong> will open on
+                <strong> 15 March 2026</strong>.
+              </p>
+
+              <p className="text-sm text-foreground/60 mt-2">
+                The registration form will be available here.
+              </p>
+
+              <button
+                disabled
+                className="mt-4 px-6 py-2 rounded-md bg-muted text-foreground/50 cursor-not-allowed border border-border"
+              >
+                Opens on 15 March 2026
+              </button>
+            </div>
           </div>
+
 
           <div className="bg-secondary/20 rounded-lg p-6 border border-border animate-slideInUp delay-400 shadow-sm">
             <h4 className="font-bold text-primary mb-3 flex items-center gap-2 justify-center">
@@ -322,23 +364,41 @@ export default function CampWebsite() {
                 <span className="text-accent text-lg">✓</span> All meals included in the registration fee
               </li>
               <li className="flex items-center gap-2">
-                <span className="text-accent text-lg">✓</span> Weekly field trips and adventure activities
+                <span className="text-accent text-lg">✓</span> Field trips and adventure activities included
               </li>
             </ul>
           </div>
         </div>
       </section>
-
       {/* Footer */}
-      <footer className="bg-foreground text-white py-12 px-4">
-        <div className="max-w-6xl mx-auto text-center animate-slideInUp">
-          <h3 className="text-2xl font-bold mb-4">Summer Camp 25</h3>
-          <p className="text-white/80 mb-6">Celebrating 25 years of childhood adventure and growth</p>
+      <footer
+        className="
+    relative
+    bg-[url('/HUL-march-1.jpeg')]
+    bg-cover
+    bg-center
+    text-white
+    py-16
+    px-4
+  "
+      >
+        {/* Simple dark overlay */}
+        <div className="absolute inset-0 bg-black/65"></div>
+
+        <div className="relative max-w-6xl mx-auto text-center">
+          <h3 className="text-2xl font-semibold mb-3">
+            Chinnara Chilipili
+          </h3>
+
+          <p className="text-white/85 mb-6">
+            Celebrating 25 years of childhood adventure and growth
+          </p>
+
           <p className="text-white/60 text-sm">
-            © 2025 Summer Camp. Creating memories and building character since 2000.
+            © 2026 Chinnara Chilipili. Creating memories since 1999.
           </p>
         </div>
       </footer>
-    </div>
+    </div >
   )
 }
