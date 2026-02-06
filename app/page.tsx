@@ -12,37 +12,37 @@ export default function CampWebsite() {
       year: 2000,
       title: "The Beginning",
       description: "The first summer camp brings together 25 children from the community.",
-      image: "/children-playing-outdoors-in-camp.jpg",
+      image: "/Beginning.jpeg",
     },
     {
       year: 2005,
       title: "Growing Community",
       description: "Expansion to 100+ kids annually with new sports and yoga programs.",
-      image: "/kids-doing-yoga-and-stretching-together.jpg",
+      image: "/Growing community.jpeg",
     },
     {
       year: 2010,
       title: "Art & Creativity",
       description: "Introduction of drawing and artistic expression workshops.",
-      image: "/children-drawing-and-painting-art.jpg",
+      image: "/art and craft.jpeg",
     },
     {
       year: 2015,
       title: "Teamwork Focus",
       description: "Launch of team-building activities and outdoor adventures.",
-      image: "/kids-playing-team-sports-and-bonding.jpg",
+      image: "/Teamwork.jpeg",
     },
     {
       year: 2020,
       title: "Adapting & Growing",
       description: "Innovation in camp activities during challenging times.",
-      image: "/children-participating-in-activities.jpg",
+      image: "/Recent.jpeg",
     },
     {
       year: 2024,
       title: "25 Years of Memories",
       description: "Celebrating 25 years of growth, learning, and unforgettable memories.",
-      image: "/happy-children-celebrating-camp-anniversary.jpg",
+      image: "/Last photo.jpeg",
     },
   ]
 
