@@ -1,11 +1,35 @@
 "use client"
 
-import { useState } from "react"
-import { ChevronDown, Calendar, Trophy, MapPin, Sparkles } from "lucide-react"
+import { useEffect, useRef, useState } from "react"
+import { ChevronDown, Calendar, Trophy, MapPin, Sparkles, Menu, X } from "lucide-react"
 import Reveal from "@/components/Reveal"
+import { Dialog, DialogContent } from "@/components/ui/dialog"
+import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel"
+import { Sheet, SheetContent } from "@/components/ui/sheet"
 
 export default function CampWebsite() {
   const [expandedYear, setExpandedYear] = useState<number | null>(null)
+
+  // mobile/menu/gallery/registration UI state
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [galleryOpen, setGalleryOpen] = useState(false)
+  const [galleryIndex, setGalleryIndex] = useState(0)
+  const galleryApiRef = useRef<any | null>(null)
+
+  useEffect(() => {
+    if (galleryOpen && galleryApiRef.current) {
+      try {
+        galleryApiRef.current.scrollTo(galleryIndex)
+      } catch (err) {
+        /* ignore */
+      }
+    }
+  }, [galleryOpen, galleryIndex])
+
+  const openGalleryAt = (idx: number) => {
+    setGalleryIndex(idx)
+    setGalleryOpen(true)
+  }
 
   const timelineEvents = [
     {
@@ -166,6 +190,7 @@ export default function CampWebsite() {
               >
                 <button
                   onClick={() => setExpandedYear(expandedYear === event.year ? null : event.year)}
+                  aria-expanded={expandedYear === event.year}
                   className="w-full p-6 bg-white hover:bg-muted/30 transition flex items-center justify-between"
                 >
                   <div className="flex items-center gap-4 text-left">
@@ -191,6 +216,8 @@ export default function CampWebsite() {
                       src={event.image || "/placeholder.svg"}
                       alt={event.title}
                       className="w-full h-64 object-cover rounded-lg shadow-md"
+                      loading="lazy"
+                      decoding="async"
                     />
                   </div>
                 )}
@@ -247,17 +274,48 @@ export default function CampWebsite() {
             {memoryPhotos.map((photo, idx) => (
               <div
                 key={idx}
-                className="aspect-square rounded-lg overflow-hidden border border-border hover:shadow-xl transition transform hover:scale-105 animate-scaleIn cursor-pointer"
+                role="button"
+                tabIndex={0}
+                onClick={() => openGalleryAt(idx)}
+                onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && openGalleryAt(idx)}
+                className="aspect-square rounded-lg overflow-hidden border border-border hover:shadow-xl transition transform hover:scale-105 animate-scaleIn cursor-pointer relative"
                 style={{ animationDelay: `${idx * 0.05}s` }}
               >
                 <img
                   src={photo || "/placeholder.svg"}
                   alt={`Camp memory ${idx + 1}`}
                   className="w-full h-full object-cover hover:brightness-110 transition"
+                  loading="lazy"
+                  decoding="async"
                 />
+                <div className="absolute inset-0 flex items-end justify-end p-2 pointer-events-none">
+                  <div className="bg-black/40 text-white text-xs rounded-md px-2 py-1 backdrop-blur">View</div>
+                </div>
               </div>
             ))}
           </div>
+
+          {/* Gallery lightbox (Dialog + Carousel) */}
+          <Dialog open={galleryOpen} onOpenChange={setGalleryOpen}>
+            <DialogContent className="sm:max-w-4xl w-full max-w-screen-md p-0 bg-black/90">
+              <div className="w-full h-[70vh] sm:h-[80vh]">
+                <Carousel
+                  opts={{ containScroll: 'trimSnaps', align: 'center' }}
+                  setApi={(api) => (galleryApiRef.current = api)}
+                >
+                  <CarouselContent className="h-full">
+                    {memoryPhotos.map((photo, i) => (
+                      <CarouselItem key={i} className="h-full flex items-center justify-center bg-black">
+                        <img src={photo} alt={`Camp memory ${i + 1}`} className="max-h-[78vh] w-auto object-contain" loading="lazy" decoding="async" />
+                      </CarouselItem>
+                    ))}
+                  </CarouselContent>
+                  <CarouselPrevious />
+                  <CarouselNext />
+                </Carousel>
+              </div>
+            </DialogContent>
+          </Dialog>
         </div>
       </section>
 
