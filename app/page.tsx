@@ -383,25 +383,35 @@ export default function CampWebsite() {
               <div className="text-4xl">📅</div>
 
               <h3 className="text-xl font-semibold text-foreground">
-                Registrations Opening Soon
+                Registrations Open
               </h3>
 
               <p className="text-foreground/70 max-w-md">
-                Registrations for this year’s <strong>Chinnara Chilipili</strong> will open on
-                <strong> 10 March 2026</strong>.
-              </p>
-
-              <p className="text-sm text-foreground/60 mt-2">
-                The registration form will be available here.
+                Registrations for this year’s <strong>Chinnara Chilipili</strong> are now open.
+                Secure your child’s spot for an unforgettable camp experience.
               </p>
 
               {/* Camp Start Date */}
-              <div className="mt-4 flex items-center justify-center gap-2 bg-white/70 border border-border rounded-md px-4 py-2">
+              <div className="mt-3 flex items-center justify-center gap-2 bg-white/70 border border-border rounded-md px-4 py-2">
                 <span className="text-lg">🏕️</span>
                 <p className="text-foreground/80 text-sm font-medium">
                   Camp begins on <strong>17 April 2026</strong>
                 </p>
               </div>
+
+              {/* Register Button */}
+              <a
+                href="https://forms.gle/YpRxP3e1qzPPqJNp6"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-5 px-6 py-2 rounded-md bg-primary text-white hover:bg-primary/90 transition font-medium"
+              >
+                Register Now
+              </a>
+
+              <p className="text-xs text-foreground/60">
+                Registration form opens in a new tab
+              </p>
             </div>
           </div>
 
