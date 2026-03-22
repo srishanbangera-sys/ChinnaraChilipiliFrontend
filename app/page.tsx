@@ -367,7 +367,7 @@ export default function CampWebsite() {
             Register Your Child Today
           </h3>
           <p className="text-lg text-foreground/80 mb-4 animate-slideInUp delay-100">
-            Only ₹100 to give your child an unforgettable week of adventure, learning, and friendship!
+            Only ₹50 to give your child an unforgettable week of adventure, learning, and friendship!
           </p>
           <p className="text-foreground/70 mb-8 animate-slideInUp delay-200">
             Fill the form to register for this year's Chinnara Chilipili.
@@ -401,7 +401,7 @@ export default function CampWebsite() {
 
               {/* Register Button */}
               <a
-                href="https://forms.gle/YpRxP3e1qzPPqJNp6"
+                href="https://docs.google.com/forms/d/e/1FAIpQLSdY_TfGQVbtb8ZgZKHkk6lh-QjF47o1Oq7rq_AWqt8Vjjpp7A/viewform?usp=dialog"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-5 px-6 py-2 rounded-md bg-primary text-white hover:bg-primary/90 transition font-medium"
